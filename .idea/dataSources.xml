@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Django" uuid="20d886dd-5f91-4d0e-a57a-0cae2bd06bd0">
+    <data-source source="LOCAL" name="imzack.me" uuid="20d886dd-5f91-4d0e-a57a-0cae2bd06bd0">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>

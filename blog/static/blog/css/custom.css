@@ -32,12 +32,34 @@
     outline: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
+h1 {
+    /*1em = 16px（对于任何浏览器都是如此）*/
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.4em;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+h5 {
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
 h6 {
+    font-size: 1em;
     margin-top: 0;
 }
 
@@ -64,7 +86,6 @@ body {
 }
 
 p {
-    font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
     word-spacing: 1px;
     letter-spacing: 0.01em;
@@ -122,6 +143,7 @@ img {
  * 3.1 - Logo
  */
 
+/* 后代选择器，即 logo 包含 h1 包含 a 才起作用？*/
 .logo h1 a {
     color: #000;
 }
@@ -133,13 +155,23 @@ img {
 
 .logo h1 {
     margin: 0;
-    font-family: 'Lato', sans-serif;
     font-weight: 300;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 500;
 }
 
 /**
  * 3.2 - Main Navigation
  */
+
+.nav-icon {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
 
 .main-nav {
     margin-top: 11px;
@@ -150,7 +182,6 @@ img {
     color: #000000 !important;
     padding: 0 0 5px 0 !important;
     margin-right: 30px;
-    font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 24px;
 }
@@ -218,23 +249,23 @@ img {
     padding: 30px 30px 0;
 }
 
+/* 文章标题 */
 .entry-title {
-    text-align: center;
-    font-size: 1.9em;
-    margin-bottom: 20px;
+    font-size: 1.8em;
+    margin-bottom: 10px;
     line-height: 1.6;
-    padding: 10px 20px 0;
 }
 
+/* 文章下的时间等 */
 .entry-meta {
-    text-align: center;
-    color: #DDDDDD;
+    color: #999;
     font-size: 13px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
+/* 文章正文 */
 .entry-content {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.9;
     font-weight: 300;
     color: #000;
@@ -244,7 +275,7 @@ img {
 .post-date::after,
 .post-author::after,
 .comments-link::after {
-    content: ' ·';
+    content: '';
     color: #000;
 }
 
@@ -253,11 +284,7 @@ img {
  */
 
 .read-more {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 400;
-    word-spacing: 1px;
-    letter-spacing: 0.01em;
-    text-align: center;
+    font-weight: 300;
     margin-top: 20px;
 }
 
@@ -873,6 +900,10 @@ img {
     font-size: 14px;
 }
 
+/**
+ * after 指示在添加此修饰符的元素（nickname）后部添加 content 中的内容（一个点）
+ * :after 是 CCS2 中的用法，::after 是 CCS3 中的用法
+ */
 .comment-item .nickname:after {
     content: ' ·';
 }

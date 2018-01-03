@@ -1,10 +1,73 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>全杰是也</title>
+
+    <!-- meta -->
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'blog/css/pace.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}?v=1">
+    <link rel="stylesheet" href="{% static 'blog/css/highlights/github.css' %}">
+
+    <!-- js -->
+    <script src="{% static 'blog/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/pace.min.js' %}"></script>
+    <script src="{% static 'blog/js/modernizr.custom.js' %}"></script>
 </head>
+
 <body>
-$END$
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2 col-sm-10 col-xs-9">
+                <div class="logo">
+                    <a href="{% url 'blog:index' %}">全杰是也</a>
+                </div>
+            </div>
+            <div class="col-md-1 col-md-offset-2 col-sm-1 col-xs-1">
+                <div class="nav-icon">
+                    <a href="{% url 'blog:about' %}"><span class="ion-android-person"></span></a>
+                </div>
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1">
+                <div class="nav-icon">
+                    <a href="{% url 'rss' %}"><span class="ion-social-rss"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <!-- 左侧 2 列 margin，接着 8 列内容，虽然看起来是居中了，实际上右侧没有设置 margin -->
+            <main class="col-md-8 col-md-offset-2">
+                {% block main %}
+                {% endblock main %}
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy 2017 全杰是也</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{% static 'blog/js/script.js' %}"></script>
+
 </body>
 </html>
