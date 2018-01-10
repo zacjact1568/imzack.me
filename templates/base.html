@@ -2,22 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>全杰是也</title>
+    <title>{% block title %}{% endblock title %}</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.3/css/all.css"> -->
-    <link rel="stylesheet" href="{% static 'blog/css/fontawesome-all.css' %}">
-    <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
-    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}?v=3">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.3/css/all.css">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
 
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
-    <script src="{% static 'blog/js/jquery-3.2.1.js' %}"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    <script src="{% static 'blog/js/bootstrap.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -46,7 +41,6 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <!-- 左侧 2 列 margin，接着 8 列内容，虽然看起来是居中了，实际上右侧没有设置 margin -->
             <main class="col-md-8 col-md-offset-2">
                 {% block main %}
                 {% endblock main %}

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}全杰是也{% endblock title %}
+
 {% block main %}
     {% for post in post_list %}
         <article class="post">
@@ -15,8 +17,6 @@
                 <p>{{ post.excerpt|safe }}</p>
             </div>
         </article>
-    {% empty %}
-        <div>暂时还没有发布的文章！</div>
     {% endfor %}
 
     {% if is_paginated %}

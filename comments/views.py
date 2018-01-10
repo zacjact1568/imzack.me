@@ -29,11 +29,11 @@ def post_comment(request, post_pk):
 
         else:
             # 检查到数据不合法，重新渲染详情页，并且渲染表单的错误
-            # 传了三个模板变量给 detail.html，一个是文章（Post），一个是评论列表，一个是表单 form
+            # 传了三个模板变量给 post.html，一个是文章（Post），一个是评论列表，一个是表单 form
             # 使用 post.comment_set.all() 获取这篇 post 下的的全部评论，等价于 Comment.objects.filter(post=post)
             # 因为 Post 和 Comment 是外键关联的，因此也可以使用 post.comment_set.all() 反向查询全部评论
             comment_list = post.comment_set.all()
             context = {'post': post, 'form': form, 'comment_list': comment_list}
-            return render(request, 'blog/detail.html', context=context)
+            return render(request, 'blog/post.html', context=context)
     # 不是 post 请求，说明用户没有提交数据，重定向到文章详情页
     return redirect(post)

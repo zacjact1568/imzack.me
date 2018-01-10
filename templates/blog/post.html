@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ post.title }} | 全杰是也{% endblock title %}
+
 {% block main %}
     <article class="post">
         <header>
@@ -7,10 +9,6 @@
             <div class="post-time post-time-detail">
                 <time datetime="{{ post.time|date:"Y-m-d" }}">{{ post.time|date:"Y-m-d" }}</time>
             </div>
-{#            <div class="widget widget-content">#}
-{#                <h3 class="widget-title">文章目录</h3>#}
-{#                {{ post.toc|safe }}#}
-{#            </div>#}
         </header>
         <div class="post-content">
             {{ post.content|safe }}
@@ -36,8 +34,6 @@
                     {{ comment.content }}
                 </div>
             </li>
-            {% empty %}
-            暂无评论
             {% endfor %}
         </ul>
         <div class="comment-form-title">发表评论</div>
@@ -46,7 +42,6 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="{{ form.name.id_for_label }}">名字：</label>
-                    <!-- 自动渲染成表单控件 -->
                     {{ form.name }}
                     {{ form.name.errors }}
                 </div>

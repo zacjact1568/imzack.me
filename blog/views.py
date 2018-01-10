@@ -1,42 +1,8 @@
 import markdown
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from django.utils.text import slugify
-from markdown.extensions.toc import TocExtension
 from comments.forms import CommentForm
 from .models import Post
-
-
-def index(request):
-    post_list = Post.objects.all()
-    # 生成摘要
-    for post in post_list:
-        excerpt_index = post.content.find('<!--more-->')
-        if excerpt_index > -1:
-            # 若在正文中找到 <!--more-->，将其前面部分作为摘要
-            post.excerpt = post.content[:excerpt_index]
-        else:
-            # 否则使用全部正文作为摘要
-            post.excerpt = post.content
-        post.excerpt = markdown.markdown(post.excerpt)
-    return render(request, 'blog/index.html', context={'post_list': post_list})
-
-
-def detail(request, file):
-    post = get_object_or_404(Post, file=file)
-    post.content = markdown.markdown(post.content,
-                                     extensions=[
-                                      'markdown.extensions.extra',
-                                      # 语法高亮
-                                      'markdown.extensions.codehilite',
-                                      # 自动生成目录
-                                      'markdown.extensions.toc',
-                                     ])
-    form = CommentForm()
-    # 获取这篇 post 下的全部评论
-    comment_list = post.comment_set.all()
-    context = {'post': post, 'form': form, 'comment_list': comment_list}
-    return render(request, 'blog/detail.html', context=context)
 
 
 class IndexView(ListView):
@@ -178,9 +144,9 @@ class IndexView(ListView):
         return data
 
 
-class PostDetailView(DetailView):
+class PostView(DetailView):
     model = Post
-    template_name = 'blog/detail.html'
+    template_name = 'blog/post.html'
     context_object_name = 'post'
     # 指定 URL 中模板的参数
     slug_url_kwarg = 'file'
@@ -189,23 +155,18 @@ class PostDetailView(DetailView):
 
     def get_object(self, queryset=None):
         # 对 content 进行 markdown 渲染
-        post = super(PostDetailView, self).get_object(queryset=None)
-        md = markdown.Markdown(extensions=[
-            'markdown.extensions.extra',
-            # 语法高亮
-            'markdown.extensions.codehilite',
-            # 自动生成目录
-            TocExtension(slugify=slugify),
-        ])
-        post.content = md.convert(post.content)
-        # 添加 markdown.extensions.toc 扩展后，md 就会多出一个 toc 属性
-        # 动态为 post 添加 toc 属性
-        post.toc = md.toc
+        post = super(PostView, self).get_object(queryset=None)
+        post.content = markdown.markdown(post.content,
+                                         extensions=[
+                                             'markdown.extensions.extra',
+                                             # 语法高亮
+                                             'markdown.extensions.codehilite',
+                                         ])
         return post
 
     def get_context_data(self, **kwargs):
         # 将评论列表和表单传递给模板
-        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context = super(PostView, self).get_context_data(**kwargs)
         form = CommentForm()
         # 获取这篇 post 下的全部评论
         comment_list = self.object.comment_set.all()
