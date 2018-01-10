@@ -6,8 +6,6 @@ class Comment(models.Model):
 
     name = models.CharField(max_length=50)
 
-    email = models.EmailField(max_length=50)
-
     # 个人网站
     website = models.URLField(blank=True)
 

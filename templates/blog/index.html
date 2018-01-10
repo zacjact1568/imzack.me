@@ -2,25 +2,21 @@
 
 {% block main %}
     {% for post in post_list %}
-        <!-- pk = primary key -->
-        <article class="post post-{{ post.pk }}">
-            <header class="entry-header">
-                <h1 class="entry-title">
+        <article class="post">
+            <header>
+                <div class="post-title">
                     <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                </h1>
-                <div class="entry-meta">
-                    <span class="post-date"><time class="entry-date" datetime="{{ post.time }}">{{ post.time }}</time></span>
+                </div>
+                <div class="post-time">
+                    <time datetime="{{ post.time|date:"Y-m-d" }}">{{ post.time|date:"Y-m-d" }}</time>
                 </div>
             </header>
-            <div class="entry-content clearfix">
+            <div class="post-content">
                 <p>{{ post.excerpt|safe }}</p>
-                <div class="read-more">
-                    <a href="{{ post.get_absolute_url }}" class="more-link">更多 &raquo</a>
-                </div>
             </div>
         </article>
     {% empty %}
-        <div class="no-post">暂时还没有发布的文章！</div>
+        <div>暂时还没有发布的文章！</div>
     {% endfor %}
 
     {% if is_paginated %}
@@ -36,7 +32,7 @@
                     <a href="?page={{ i }}">{{ i }}</a>
                 {% endfor %}
             {% endif %}
-            <a href="?page={{ page_obj.number }}" style="color: deepskyblue">{{ page_obj.number }}</a>
+            <span class="current-page"><a href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></span>
             {% if right %}
                 {% for i in right %}
                     <a href="?page={{ i }}">{{ i }}</a>

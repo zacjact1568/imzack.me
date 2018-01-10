@@ -4,48 +4,46 @@
 <head>
     <title>全杰是也</title>
 
-    <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- css -->
-    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="{% static 'blog/css/pace.css' %}">
-    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}?v=1">
-    <link rel="stylesheet" href="{% static 'blog/css/highlights/github.css' %}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.3/css/all.css"> -->
+    <link rel="stylesheet" href="{% static 'blog/css/fontawesome-all.css' %}">
+    <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}?v=3">
 
-    <!-- js -->
-    <script src="{% static 'blog/js/jquery-2.1.3.min.js' %}"></script>
-    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'blog/js/pace.min.js' %}"></script>
-    <script src="{% static 'blog/js/modernizr.custom.js' %}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+    <script src="{% static 'blog/js/jquery-3.2.1.js' %}"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="{% static 'blog/js/bootstrap.js' %}"></script>
 </head>
 
 <body>
-<div class="container">
-    <header id="site-header">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-2 col-sm-10 col-xs-9">
-                <div class="logo">
+<header class="header">
+    <div class="container">
+        <div class="row no-gutter">
+            <div class="col-md-5 col-md-offset-2 col-sm-10 col-xs-8">
+                <div class="header-title">
                     <a href="{% url 'blog:index' %}">全杰是也</a>
                 </div>
             </div>
-            <div class="col-md-1 col-md-offset-2 col-sm-1 col-xs-1">
-                <div class="nav-icon">
-                    <a href="{% url 'blog:about' %}"><span class="ion-android-person"></span></a>
-                </div>
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-1">
-                <div class="nav-icon">
-                    <a href="{% url 'rss' %}"><span class="ion-social-rss"></span></a>
+            <div class="col-md-1 col-md-offset-2 col-sm-2 col-xs-4">
+                <div class="header-menu-icon-bar">
+                    <div class="header-menu-icon">
+                        <a href="{% url 'blog:about' %}"><span class="fas fa-user"></span></a>
+                    </div>
+                    <div class="header-menu-icon">
+                        <a href="{% url 'rss' %}"><span class="fas fa-rss"></span></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-</div>
+    </div>
+</header>
 
-<div class="content-body">
+<div class="content">
     <div class="container">
         <div class="row">
             <!-- 左侧 2 列 margin，接着 8 列内容，虽然看起来是居中了，实际上右侧没有设置 margin -->
@@ -57,17 +55,15 @@
     </div>
 </div>
 
-<footer id="site-footer">
+<footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="copyright">&copy 2017 全杰是也</p>
+                <p class="copyright">&copy 2017-2018 全杰是也</p>
             </div>
         </div>
     </div>
 </footer>
-
-<script src="{% static 'blog/js/script.js' %}"></script>
 
 </body>
 </html>

@@ -1,65 +1,57 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <article class="post post-{{ post.pk }}">
-        <header class="entry-header">
-            <h1 class="entry-title">{{ post.title }}</h1>
-            <div class="entry-meta">
-                <span class="post-date"><time class="entry-date" datetime="{{ post.time }}">{{ post.time }}</time></span>
+    <article class="post">
+        <header>
+            <div class="post-title">{{ post.title }}</div>
+            <div class="post-time post-time-detail">
+                <time datetime="{{ post.time|date:"Y-m-d" }}">{{ post.time|date:"Y-m-d" }}</time>
             </div>
-            <!-- <div class="widget widget-content">
-                <h3 class="widget-title">文章目录</h3>
-                {{ post.toc|safe }}
-            </div> -->
+{#            <div class="widget widget-content">#}
+{#                <h3 class="widget-title">文章目录</h3>#}
+{#                {{ post.toc|safe }}#}
+{#            </div>#}
         </header>
-        <div class="entry-content clearfix">
+        <div class="post-content">
             {{ post.content|safe }}
         </div>
     </article>
-    <section class="comment-area" id="comment-area">
-        <hr>
-        <div class="comment-list-panel">
-            <h1><span>{{ comment_list.count }}</span> 条评论</h1>
-            <ul class="comment-list list-unstyled">
-                {% for comment in comment_list %}
-                <li class="comment-item">
-                    <span class="nickname">
-                        {% if comment.website %}
-                        <a href="{{ comment.website }}">
-                        {% endif %}
-                        {{ comment.name }}
-                        {% if comment.website %}
-                        </a>
-                        {% endif %}
-                    </span>
-                    <time class="submit-date">{{ comment.time }}</time>
-                    <div class="text">
-                        {{ comment.content }}
-                    </div>
-                </li>
-                {% empty %}
-                暂无评论
-                {% endfor %}
-            </ul>
-        </div>
-        <hr>
-        <h1>发表评论</h1>
+    <hr>
+    <section class="comment">
+        <div class="comment-list-title"><span>{{ comment_list.count }}</span> 条评论</div>
+        <ul class="comment-list list-unstyled">
+            {% for comment in comment_list %}
+            <li class="comment-item">
+                <span class="comment-name">
+                    {% if comment.website %}
+                    <a href="{{ comment.website }}">
+                    {% endif %}
+                    {{ comment.name }}
+                    {% if comment.website %}
+                    </a>
+                    {% endif %}
+                </span>
+                <time class="comment-time" datetime="{{ comment.time|date:"Y-m-d H:i" }}">{{ comment.time|date:"Y-m-d H:i" }}</time>
+                <div class="comment-content">
+                    {{ comment.content }}
+                </div>
+            </li>
+            {% empty %}
+            暂无评论
+            {% endfor %}
+        </ul>
+        <div class="comment-form-title">发表评论</div>
         <form action="{% url 'comments:post_comment' post.pk %}" method="post" class="comment-form">
             {% csrf_token %}
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="{{ form.name.id_for_label }}">名字：</label>
                     <!-- 自动渲染成表单控件 -->
                     {{ form.name }}
                     {{ form.name.errors }}
                 </div>
-                <div class="col-md-4">
-                    <label for="{{ form.email.id_for_label }}">邮箱：</label>
-                    {{ form.email }}
-                    {{ form.email.errors }}
-                </div>
-                <div class="col-md-4">
-                    <label for="{{ form.website.id_for_label }}">网址：</label>
+                <div class="col-md-6">
+                    <label for="{{ form.website.id_for_label }}">网站（可选）：</label>
                     {{ form.website }}
                     {{ form.website.errors }}
                 </div>
@@ -67,7 +59,7 @@
                     <label for="{{ form.content.id_for_label }}">评论：</label>
                     {{ form.content }}
                     {{ form.content.errors }}
-                    <button type="submit" class="comment-btn">发表</button>
+                    <button type="submit" class="comment-submit-button">提交</button>
                 </div>
             </div>
         </form>

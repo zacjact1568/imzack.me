@@ -1,23 +1,35 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block main %}
-    <h1 class="page-title">关于</h1>
-    <article class="post">
-        <div class="entry-content clearfix">
-{#            <figure class="img-responsive-center">#}
-{#                <img class="img-responsive" src="img/me.jpg" alt="Developer Image">#}
-{#            </figure>#}
-            <p>
-                来自四川德阳，电子科技大学计算机科学与工程学院硕士研究生。
-            </p>
-            <div class="height-40px"></div>
-{#            <h2 class="title text-center">Social</h2>#}
-{#            <ul class="social">#}
-{#                <li class="twitter"><a href="#"><span class="ion-social-twitter"></span></a></li>#}
-{#                <li class="twitter"><a href="#"><span class="ion-social-instagram"></span></a></li>#}
-{#                <li class="twitter"><a href="#"><span class="ion-social-github"></span></a></li>#}
-{#                <li class="twitter"><a href="#"><span class="ion-social-apple"></span></a></li>#}
-{#            </ul>#}
+    <article class="about">
+        <div class="about-title">关于</div>
+        <div class="reference">Will you be my witness?</div>
+        <div class="about-content">
+            <figure class="avatar">
+                <img src="{% static 'blog/img/avatar.jpg' %}" alt="全杰是也"/>
+            </figure>
+            <div>来自四川德阳，电子科技大学计算机科学与工程学院硕士研究生。</div>
+            <div class="about-section-title">爱好</div>
+            <div>编程：Android 应用程序开发</div>
+            <div>音乐：欧美流行 | 电子音乐 | 舞曲 | 另类音乐 | 唱作歌手</div>
+            <div>摄影</div>
+            <div>旅行</div>
+            <div>游戏：<a href="https://minecraft.net/">Minecraft</a></div>
+            <div class="about-section-title">联系方式</div>
+            <div class="contact">
+                <a href=mailto:zxjue@outlook.com><span class="fas fa-envelope"></span></a>
+                <a href="https://twitter.com/zacjact1568"><span class="fab fa-twitter"></span></a>
+                <a href="https://www.instagram.com/zacjact1568/"><span class="fab fa-instagram"></span></a>
+                <a href="https://t.me/zacjact1568"><span class="fab fa-telegram"></span></a>
+                <a href="https://github.com/zacjact1568"><span class="fab fa-github"></span></a>
+                <a href="http://weibo.com/zacjact1568"><span class="fab fa-weibo"></span></a>
+            </div>
+            <div class="about-section-title">感谢</div>
+            <div><a href="https://www.djangoproject.com">Django</a></div>
+            <div><a href="http://getbootstrap.com">Bootstrap</a></div>
+            <div><a href="https://fontawesome.com">Font Awesome</a></div>
+            <div><a href="http://theme-next.iissnan.com">NexT</a></div>
         </div>
     </article>
 {% endblock main %}
