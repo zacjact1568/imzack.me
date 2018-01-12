@@ -14,8 +14,8 @@ class Post(models.Model):
     # 正文，使用 TextField 来存储大段文本
     content = models.TextField()
 
-    # 时间，存储时间的字段用 DateTimeField
-    time = models.DateTimeField()
+    # 日期
+    date = models.DateField()
 
     # 解释器显示的数据为此函数的返回值
     def __str__(self):
@@ -25,5 +25,5 @@ class Post(models.Model):
         return reverse('blog:detail', kwargs={'file': self.file})
 
     class Meta:
-        # time 逆序（-）排列
-        ordering = ['-time']
+        # 日期逆序（-）排列
+        ordering = ['-date']
