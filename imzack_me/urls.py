@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from blog.feeds import AllPostsRssFeed
+from blog.views import permission_denied, page_not_found, page_error
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,3 +24,9 @@ urlpatterns = [
     url(r'', include('comments.urls')),
     url(r'^all/rss/$', AllPostsRssFeed(), name='rss'),
 ]
+
+handler403 = permission_denied
+
+handler404 = page_not_found
+
+handler500 = page_error

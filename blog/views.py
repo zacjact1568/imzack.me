@@ -161,3 +161,15 @@ class PostView(DetailView):
 
 def about(request):
     return render(request, 'blog/about.html')
+
+
+def permission_denied(request):
+    return render(request, 'status/403.html')
+
+
+def page_not_found(request):
+    return render(request, 'status/404.html')
+
+
+def page_error(request):
+    return render(request, 'status/500.html')

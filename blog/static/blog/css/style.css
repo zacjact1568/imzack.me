@@ -308,6 +308,22 @@ a:hover {
     margin-right: 5px;
 }
 
+/* 403/404/500.html */
+
+.status {
+    padding: 30px 30px 0;
+}
+
+.status-title {
+    font-size: 1.6em;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.status-content {
+    line-height: 1.8;
+}
+
 /* Media Query */
 
 /* 当宽度小于 max-width 时 */
