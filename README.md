@@ -1,7 +1,7 @@
 # imzack.me
 
-<img src="favicon.ico" align="right"/>
+<img src="blog/static/img/favicon.ico" align="right"/>
 
-This is the repository of my own website, **imzack.me**.
+This is the repository of my website.
 
 🔗 http://imzack.me
