@@ -1,5 +1,7 @@
 # imzack.me
 
-**imzack.me** is a simple blog, written by Zack Zhang.
+<img src="favicon.ico" align="right"/>
 
-*NOTE: This blog is still under development, not a release version.*
+This is the repository of my own website, **imzack.me**.
+
+🔗 http://imzack.me
