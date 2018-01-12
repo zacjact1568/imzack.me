@@ -8,14 +8,17 @@ class Post(models.Model):
     # 标题，存储较短的字符串使用 CharField，设定最长为 50
     title = models.CharField(max_length=50)
 
-    # 文件名
-    file = models.CharField(max_length=50)
+    # 摘要（可空）
+    excerpt = models.CharField(max_length=200, blank=True)
 
     # 正文，使用 TextField 来存储大段文本
     content = models.TextField()
 
     # 日期
     date = models.DateField()
+
+    # 文件名
+    file = models.CharField(max_length=50)
 
     # 解释器显示的数据为此函数的返回值
     def __str__(self):

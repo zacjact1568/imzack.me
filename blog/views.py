@@ -15,21 +15,6 @@ class IndexView(ListView):
     # 指定每一页包含的文章数量
     paginate_by = 5
 
-    def get_queryset(self):
-        post_list = super(IndexView, self).get_queryset()
-        # 生成摘要
-        for post in post_list:
-            excerpt_index = post.content.find('<!--more-->')
-            if excerpt_index > -1:
-                # 若在正文中找到 <!--more-->，将其前面部分作为摘要
-                # 动态为 post 添加 excerpt 属性
-                post.excerpt = post.content[:excerpt_index]
-            else:
-                # 否则使用全部正文作为摘要
-                post.excerpt = post.content
-            post.excerpt = markdown.markdown(post.excerpt)
-        return post_list
-
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
 
