@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.timezone import now
 
 
 # 文章类
@@ -15,7 +16,7 @@ class Post(models.Model):
     content = models.TextField('正文')
 
     # 日期
-    date = models.DateField('日期')
+    date = models.DateField('日期', default=now)
 
     # 文件名
     file = models.CharField('文件', max_length=50)
