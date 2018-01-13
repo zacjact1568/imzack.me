@@ -6,19 +6,19 @@ from django.urls import reverse
 class Post(models.Model):
 
     # 标题，存储较短的字符串使用 CharField，设定最长为 50
-    title = models.CharField(max_length=50)
+    title = models.CharField('标题', max_length=50)
 
     # 摘要（可空）
-    excerpt = models.CharField(max_length=200, blank=True)
+    excerpt = models.CharField('摘要', max_length=200, blank=True)
 
     # 正文，使用 TextField 来存储大段文本
-    content = models.TextField()
+    content = models.TextField('正文')
 
     # 日期
-    date = models.DateField()
+    date = models.DateField('日期')
 
     # 文件名
-    file = models.CharField(max_length=50)
+    file = models.CharField('文件', max_length=50)
 
     # 解释器显示的数据为此函数的返回值
     def __str__(self):
@@ -28,5 +28,9 @@ class Post(models.Model):
         return reverse('blog:detail', kwargs={'file': self.file})
 
     class Meta:
+        # 管理页面显示的中文名
+        verbose_name = '文章'
+        # 管理页面显示的复数中文名，不设置的话会加 s
+        verbose_name_plural = '文章'
         # 日期逆序（-）排列
         ordering = ['-date']
