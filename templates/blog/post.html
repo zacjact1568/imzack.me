@@ -14,6 +14,7 @@
             {{ post.content|safe }}
         </div>
     </article>
+    {% if true %}
     <hr>
     <section class="comment">
         {% if comment_list.count > 0 %}
@@ -61,4 +62,5 @@
             </div>
         </form>
     </section>
+    {% endif %}
 {% endblock main %}
