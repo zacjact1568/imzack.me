@@ -75,12 +75,12 @@ a:hover {
 .post-time {
     color: #999;
     font-size: 13px;
-    margin-bottom: 16px;
 }
 
-.post-content {
+.post-excerpt {
     /* 若 line-height 为数字，真正的行间距 = line-height * 字体尺寸 */
     line-height: 1.8;
+    margin-top: 16px;
 }
 
 .pagination {
@@ -100,8 +100,9 @@ a:hover {
 
 /* post.html */
 
-.post-time-detail {
-    margin-bottom: 40px;
+.post-content {
+    line-height: 1.8;
+    margin-top: 40px;
 }
 
 .post-content h1 {
