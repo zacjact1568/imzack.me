@@ -155,7 +155,7 @@ class PostView(DetailView):
         form = CommentForm()
         # 获取这篇 post 下的全部评论
         comment_list = self.object.comment_set.all()
-        context.update({'form': form, 'comment_list': comment_list})
+        context.update({'form': form, 'comment_list': comment_list, 'enable_comments': False})
         return context
 
 

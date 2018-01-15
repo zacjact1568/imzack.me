@@ -14,7 +14,7 @@
             {{ post.content|safe }}
         </div>
     </article>
-    {% if true %}
+    {% if enable_comments %}
     <hr>
     <section class="comment">
         {% if comment_list.count > 0 %}
