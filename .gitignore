@@ -82,3 +82,6 @@ fabric.properties
 
 # Fabric
 /fabfile.py
+
+# Virtual environment
+/venv/
