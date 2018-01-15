@@ -337,7 +337,7 @@ a:hover {
 @media (max-width: 431px) {
 
     .post {
-        padding: 0 10px 0;
+        padding: 10px 10px 0;
     }
 
     .about {

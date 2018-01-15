@@ -14,7 +14,7 @@
                 </div>
             </header>
             <div class="post-excerpt">
-                <p>{{ post.excerpt }}</p>
+                <p>{{ post.excerpt|safe }}</p>
             </div>
         </article>
     {% endfor %}

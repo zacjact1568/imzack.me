@@ -15,6 +15,13 @@ class IndexView(ListView):
     # 指定每一页包含的文章数量
     paginate_by = 5
 
+    def get_queryset(self):
+        post_list = super(IndexView, self).get_queryset()
+        for post in post_list:
+            # 对摘要进行基础 Markdown 渲染
+            post.excerpt = markdown.markdown(post.excerpt)
+        return post_list
+
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
 
@@ -139,7 +146,7 @@ class PostView(DetailView):
     slug_field = 'file'
 
     def get_object(self, queryset=None):
-        # 对 content 进行 markdown 渲染
+        # 对 content 进行 Markdown 渲染
         post = super(PostView, self).get_object(queryset=None)
         post.content = markdown.markdown(post.content,
                                          extensions=[

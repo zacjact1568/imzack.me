@@ -9,8 +9,8 @@ class Post(models.Model):
     # 标题，存储较短的字符串使用 CharField，设定最长为 50
     title = models.CharField('标题', max_length=50)
 
-    # 摘要（可空）
-    excerpt = models.CharField('摘要', max_length=200, blank=True)
+    # 摘要
+    excerpt = models.TextField('摘要')
 
     # 正文，使用 TextField 来存储大段文本
     content = models.TextField('正文')
