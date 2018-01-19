@@ -307,12 +307,30 @@ a:hover {
     margin-top: 20px;
 }
 
+.minecraft {
+    height: 18px;
+}
+
 .contact {
     padding-left: 1px;
 }
 
 .contact a {
     margin-right: 5px;
+}
+
+.vultr {
+    background-color: #1669ba;
+    border-radius: 2px;
+    padding: 5px 3px;
+    height: 18px;
+}
+
+.django {
+    background-color: #0c3c26;
+    border-radius: 2px;
+    padding: 4px 3px;
+    height: 18px;
 }
 
 /* 403/404/500.html */

@@ -17,7 +17,7 @@
             <div>音乐：欧美流行 | 电子音乐 | 舞曲 | 另类音乐 | 唱作歌手</div>
             <div>摄影</div>
             <div>旅行</div>
-            <div>游戏：<a href="https://minecraft.net/">Minecraft</a></div>
+            <div>游戏：<a href="https://minecraft.net/"><img src="{% static 'blog/img/minecraft.svg' %}" class="minecraft" alt="Minecraft"></a></div>
             <div class="about-section-title">联系方式</div>
             <div class="contact">
                 <a href=mailto:zxjue@outlook.com><span class="fas fa-envelope"></span></a>
@@ -28,7 +28,15 @@
                 <a href="http://weibo.com/zacjact1568"><span class="fab fa-weibo"></span></a>
             </div>
             <div class="about-section-title">网站</div>
-            <div>本网站托管于 <a href="https://www.vultr.com">Vultr</a> 洛杉矶机房，由 <a href="https://www.djangoproject.com">Django</a> 强力驱动。</div>
+            <div>
+                <span>本网站托管于</span>
+                <a href="https://www.vultr.com"><img src="{% static 'blog/img/vultr.svg' %}" class="vultr" alt="Vultr"></a>
+                <span>洛杉矶机房，由</span>
+                <a href="https://www.djangoproject.com"><img src="{% static 'blog/img/django.svg' %}" class="django" alt="Django"></a>
+                <span>强力驱动。</span>
+            </div>
+            <div class="about-section-title">推广</div>
+            <div>如果你也想购买 Vultr 的 VPS，欢迎使用我的<a href="https://www.vultr.com/?ref=7260027">推荐链接</a>。</div>
         </div>
     </article>
 {% endblock main %}
