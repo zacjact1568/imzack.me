@@ -15,14 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from blog.feeds import AllPostsRssFeed
 from blog.views import forbidden, page_not_found, internal_server_error
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('blog.urls')),
     url(r'', include('comments.urls')),
-    url(r'^all/rss/$', AllPostsRssFeed(), name='rss'),
 ]
 
 handler403 = forbidden
