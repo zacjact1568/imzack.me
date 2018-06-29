@@ -25,7 +25,7 @@ SECRET_KEY = '^gwxid)lelo_a@+yaz9@rn-yf%&0cvzoqh49qa8(x-&(wx=n30'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.imzack.me']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'imzack.me']
 
 
 # Application definition
